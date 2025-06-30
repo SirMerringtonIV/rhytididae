@@ -1,7 +1,7 @@
 ---
 title: "This weeks survey results"
 description: "Take a look at silly laws these players would create!"
-pubDate: "Jul 30th 2025"
+pubDate: "Jul 30 2025"
 heroImage: "/dung-beetlejuice.jpg"
 ---
 

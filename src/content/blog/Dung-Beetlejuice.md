@@ -49,7 +49,7 @@ Here are their answers!
 >On Sundays, you can only use your opposite hand to perform all tasks your dominate hand would accomplish.<br>
 >-<cite>DiskoLemonade</cite>
 
->high five each other when sit somewhere together.
+>high five each other when sit somewhere together.<br>
 >-<cite>DraKot</cite>
 
 >Should you have a grievance against another citizen, you must perform a rap battle in a court of law. The aforementioned rap battle will be presided over by a judge and a jury of your peers.<br>

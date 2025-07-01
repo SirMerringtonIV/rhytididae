@@ -5,7 +5,9 @@ pubDate: "Jul 30 2025"
 heroImage: "/dung-beetlejuice.jpg"
 ---
 
-This week we asked our players "If you could create any silly law, what would you create?" Here are their answers!
+This week we asked our players "You have been hired as Chief Silly Officer of your government, you have to create one law that everyone will go "well that's silly" but must follow. What do you create?" 
+
+Here are their answers!
 
 >When asking for something, people must end their question with “put me in coach!”<br>
 >-<cite>Abner</cite>
@@ -16,28 +18,28 @@ This week we asked our players "If you could create any silly law, what would yo
 >Funny hat Monday. Every Monday all persons must wear a funny hat in all government buildings. Should make Mondays a little brighter and light hearted.<br>
 >-<cite>Bronk</cite>
 
->Title 69 U.S.C. § 420 — Gamba. 
->All future laws created at the National, State, County/Local, and City levels are required to be made by a process deemed "Spin to Win". 
->Every 69 days each level will have the opportunity to vote for desired outcomes, as well as general topics. 
->A random number generator will provide the number of desired outcomes and topics that will be added to a wheel.
->Desired topics number generator will be 1-5, whereas desired outcomes will be 1-20.
->Once this number has been chosen, Desired Topics and Outcomes will be selected in order, from most to least votes, according to that number.
->In the event of ties after the voting process, any desired outcomes with tied votes that fall within the selected number of desired outcomes being chosen will instead be counted as a single placement and all be added individually to the wheel.
->All desired outcomes and topics selected each voting session are permanently added to the wheel.
->Once added to the wheel another random number will be selected and that many laws will be passed after spinning for each.
->Two wheels will be kept updated, one being used solely for desired outcomes, the other solely for topics.
->In the event that at any level, it is desired to remove a desired outcome or topic, the option to do so will be provided every 69 days as well, only following the first vote.
->All removed desired outcomes and topics will be cataloged for future reference.
->Every 420 days a special vote will be held with a random number generator being used to select a number of spins. 
->Special wheels that possess only removed desired outcomes and topics will be used at this time.
->Specific laws are permitted to be given the chance to be proposed, only if voted on and accepted with a 70% majority vote. 
->In the event that a specific law is being proposed, at any level, a special "Fate Wheel" will be used.
->The "Fate Wheel" will consist of two options, Yes, or No.
+>Title 69 U.S.C. § 420 — Gamba. <br>
+>All future laws created at the National, State, County/Local, and City levels are required to be made by a process deemed "Spin to Win". <br>
+>Every 69 days each level will have the opportunity to vote for desired outcomes, as well as general topics. <br>
+>A random number generator will provide the number of desired outcomes and topics that will be added to a wheel.<br>
+>Desired topics number generator will be 1-5, whereas desired outcomes will be 1-20.<br>
+>Once this number has been chosen, Desired Topics and Outcomes will be selected in order, from most to least votes, according to that number.<br>
+>In the event of ties after the voting process, any desired outcomes with tied votes that fall within the selected number of desired outcomes being chosen will instead be counted as a single placement and all be added individually to the wheel.<br>
+>All desired outcomes and topics selected each voting session are permanently added to the wheel.<br>
+>Once added to the wheel another random number will be selected and that many laws will be passed after spinning for each.<br>
+>Two wheels will be kept updated, one being used solely for desired outcomes, the other solely for topics.<br>
+>In the event that at any level, it is desired to remove a desired outcome or topic, the option to do so will be provided every 69 days as well, only following the first vote.<br>
+>All removed desired outcomes and topics will be cataloged for future reference.<br>
+>Every 420 days a special vote will be held with a random number generator being used to select a number of spins. <br>
+>Special wheels that possess only removed desired outcomes and topics will be used at this time.<br>
+>Specific laws are permitted to be given the chance to be proposed, only if voted on and accepted with a 70% majority vote. <br>
+>In the event that a specific law is being proposed, at any level, a special "Fate Wheel" will be used.<br>
+>The "Fate Wheel" will consist of two options, Yes, or No.<br>
 >The number of individuals who voted at each specific level will determine the number of times the wheel is spun. Results will be tallied, and whichever falls above 50% will be the decision for whether or not the wheel is passed.
->In the event that it is a 50/50 split, the law will be proposed a second time at the next vote in 69 days following the same process.
->In the event that voters would like to remove a law, it will also be handled in the same way as proposing a specific law.
->Should voters want to remove "Spin to Win" as a process, an 85% majority vote will begin the process to decide. The "Fate Wheel" will be used in this process and spun a number of times equaling the number of voters that want to remove the "Spin to Win" process, following the same rule of requiring above 50% Yes to remove this process. 
->Voting to remove the "Spin to Win" process will only be permitted every four years during the same time as the presidential election.
+>In the event that it is a 50/50 split, the law will be proposed a second time at the next vote in 69 days following the same process.<br>
+>In the event that voters would like to remove a law, it will also be handled in the same way as proposing a specific law.<br>
+>Should voters want to remove "Spin to Win" as a process, an 85% majority vote will begin the process to decide. The "Fate Wheel" will be used in this process and spun a number of times equaling the number of voters that want to remove the "Spin to Win" process, following the same rule of requiring above 50% Yes to remove this process. <br>
+>Voting to remove the "Spin to Win" process will only be permitted every four years during the same time as the presidential election.<br>
 >Three wheel choices are available, a standard Roulette Wheel utilizing a ball, a Roulette Style Wheel utilizing an arrow pointing to the selected option, or a vertical Roulette Style Wheel that also utilizes an arrow to select an option.<br>
 >-<cite>CallMeMaui</cite>
 

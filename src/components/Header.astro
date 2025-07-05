@@ -5,10 +5,10 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu
 ---
 
 
-<header>
+<header class="lg:flex justify-between p-5 gap-5 mx-auto container">
 	<nav>
 		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div>
+		<div class="flex w-full lg:w-auto justify-between">
 			<Astronav closeOnClick>
 				<MenuItems class="hidden lg:flex">
 				<ul class="flex flex-col lg:flex-row lg:gap-5">
@@ -50,7 +50,7 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu
 						</DropdownItems>
 					</Dropdown>
 					</li>
-					<li><a href="/blog">Blog</a>
+					<li><a href="/blog">Blog</a></li>
 					<li><a href="/about">About</a></li>
 				</ul>
 				</MenuItems>

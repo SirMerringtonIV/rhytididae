@@ -7,14 +7,13 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu
 
 <header class="lg:flex justify-between p-5 gap-5 mx-auto container">
 	<Astronav closeOnClick>
-		<div class="flex w-full lg:w-auto justify-between">
 				<MenuItems class="hidden lg:flex">
 				<ul class="flex flex-col lg:flex-row lg:gap-5">
 					<li><a href="/index">Home</a></li>
 					<li>
 					<Dropdown class="group">
 						<button class="flex items-center">
-							<span> Guides</span>
+							<span>Guides</span>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								fill="none"
@@ -31,18 +30,8 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu
 						<DropdownItems class="relative">
 						<div class="lg:absolute bg-white top-2 w-40 border shadow rounded p-2">>
 							<ul>
-							<li><a href="/partner">Minion Partners</a></li>
-							<li>Calculators</li>
-							<li>
-								<DropdownSubmenu>
-								<DropdownItems>
-									<ul>
-									<li>Protomon Calculator</li>
-									<li>Sub Menu 2</li>
-									</ul>
-								</DropdownItems>
-								</DropdownSubmenu>
-							</li>
+								<li><a href="/partner">Minion Partners</a></li>
+								<li><a href="/calculator">Calculators</a></li>
 							</ul>
 						</div>
 						</DropdownItems>
@@ -52,7 +41,6 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu
 					<li><a href="/about">About</a></li>
 				</ul>
 				</MenuItems>
-		</div>
 	</Astronav>
 </header>
 

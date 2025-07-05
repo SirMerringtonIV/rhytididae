@@ -4,11 +4,15 @@ import { SITE_TITLE } from '../consts';
 import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu } from "astro-navbar";
 ---
 
+.hidden {
+  display: none;
+}
+
 <header>
 	<nav>
 		<h2><a href="/">{SITE_TITLE}</a></h2>
 		<div>
-			<Astronav>
+			<Astronav closeOnClick>
 				<MenuItems class="hidden lg:flex">
 				<ul>
 					<li>Home</li>

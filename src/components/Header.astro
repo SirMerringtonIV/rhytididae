@@ -6,10 +6,8 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu
 
 
 <header class="lg:flex justify-between p-5 gap-5 mx-auto container">
-	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
+	<Astronav closeOnClick>
 		<div class="flex w-full lg:w-auto justify-between">
-			<Astronav closeOnClick>
 				<MenuItems class="hidden lg:flex">
 				<ul class="flex flex-col lg:flex-row lg:gap-5">
 					<li><a href="/index">Home</a></li>
@@ -54,8 +52,8 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu
 					<li><a href="/about">About</a></li>
 				</ul>
 				</MenuItems>
-			</Astronav>
 		</div>
+	</Astronav>
 		<div class="social-links">
 			<a href="https://m.webtoo.ls/@astro" target="_blank">
 				<span class="sr-only">Follow Astro on Mastodon</span>
@@ -85,7 +83,6 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu
 				>
 			</a>
 		</div>
-	</nav>
 </header>
 <style>
 	header {

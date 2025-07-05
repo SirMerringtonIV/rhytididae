@@ -3,12 +3,18 @@ import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
 import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu } from "astro-navbar";
 ---
-
+<style>
+ul.nobullet {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+</style>
 
 <header class="lg:flex justify-between p-5 gap-5 mx-auto container">
 	<Astronav closeOnClick>
 				<MenuItems class="hidden lg:flex">
-				<ul class="flex flex-col lg:flex-row lg:gap-5">
+				<ul class="nobullet flex flex-col lg:flex-row lg:gap-5">
 					<li><a href="/index">Home</a></li>
 					<li>
 					<Dropdown class="group">

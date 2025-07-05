@@ -136,6 +136,10 @@ hr {
   }
 }
 
+.hidden {
+  display: none;
+}
+
 .sr-only {
   border: 0;
   padding: 0;

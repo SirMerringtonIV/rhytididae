@@ -30,6 +30,53 @@ menu.astronav-dropdown.inline-flex.items-center.group {
 .h-3 {
   height: 0.75rem; /* Equivalent to 12px with default 16px font-size */
 }
+
+nav.astronav-items a, nav.astronav-items button {
+  display: inline-block;
+  color: black;
+  text-align: center;
+  padding: 1em;
+  text-decoration: none;
+  font-size: 17px;
+  border-radius: 5px;
+}
+
+nav.astronav-items a:hover, nav.astronav-items button:hover {
+  background-color: rgb(var(--gray));
+  color: #ffffff;
+}
+
+nav.astronav-items menu.astronav-dropdown {
+  padding-top: 0 !important;
+  height:100%;
+}
+
+nav.astronav-items button {
+  background-color: transparent;
+  border: none;
+  padding: 1em .5em;
+  line-height: 2;
+  width: 100%;
+}
+
+nav.astronav-items button span {
+  margin-right: 5px;
+}
+
+nav.astronav-items div.astronav-dropdown ul {
+  padding-left: 0;
+}
+
+nav.astronav-items div.astronav-dropdown li {
+  list-style: none;
+}
+
+nav.astronav-items div.astronav-dropdown.dropdown-toggle a {
+  border-radius: 0;
+  padding: 0.5em;
+  width: 100%;
+  text-align: left;
+}
 </style>
 
 <header class="lg:flex justify-between p-5 gap-5 mx-auto">

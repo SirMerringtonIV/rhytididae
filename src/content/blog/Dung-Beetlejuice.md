@@ -58,7 +58,8 @@ Here are their answers!
 >Whatever fast food or regular chain restaurants you have to dress as the mascot to work there. And if there is no mascot the owner has to create one.<br>
 >-<cite>GingerRed</cite>
 
-<h4>Winner, mascot for the week</h4>
+<h4>Winner, mascot for the week</h4><br>
+
 >The Macarena can be used as payment for anything valued at under £10. The length of the Macarena performed may vary depending on the cost of said item you want to purchase.<br>
 >-<cite>Kaiju</cite>
 

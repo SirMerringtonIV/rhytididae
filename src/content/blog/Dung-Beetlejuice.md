@@ -59,7 +59,6 @@ Here are their answers!
 >-<cite>GingerRed</cite>
 
 <h4>Winner, mascot for the week</h4><br>
-
 >The Macarena can be used as payment for anything valued at under £10. The length of the Macarena performed may vary depending on the cost of said item you want to purchase.<br>
 >-<cite>Kaiju</cite>
 

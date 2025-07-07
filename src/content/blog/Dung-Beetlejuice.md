@@ -9,6 +9,12 @@ This week we asked our players "You have been hired as Chief Silly Officer of yo
 
 Here are their answers!
 
+<h4>Winner, mascot for the week</h4><br>
+
+>The Macarena can be used as payment for anything valued at under £10. The length of the Macarena performed may vary depending on the cost of said item you want to purchase.<br>
+>-<cite>Kaiju</cite>
+
+
 >When asking for something, people must end their question with “put me in coach!”<br>
 >-<cite>Abner</cite>
 
@@ -65,12 +71,6 @@ Here are their answers!
 
 >Whatever fast food or regular chain restaurants you have to dress as the mascot to work there. And if there is no mascot the owner has to create one.<br>
 >-<cite>GingerRed</cite>
-
-
-<h4>Winner, mascot for the week</h4><br>
-
->The Macarena can be used as payment for anything valued at under £10. The length of the Macarena performed may vary depending on the cost of said item you want to purchase.<br>
->-<cite>Kaiju</cite>
 
 
 >For being hired by any company you need to create a YouTube video where you describe yourself and add the footage of your working process (preferably accompanied by intense music) 🙃<br>

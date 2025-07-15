@@ -17,7 +17,7 @@ Here are their answers!
 ><br>
 >we set up outdoor “tinder” spots for all the exotic mountain folks and wait for the magic to happen.<br>
 ><br>
->all i want is one pic of them holding feet together
+>all i want is one pic of them holding feet together<br>
 >-<cite>Simas</cite>
 
 <br>

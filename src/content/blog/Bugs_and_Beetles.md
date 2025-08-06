@@ -44,6 +44,11 @@ Here are their answers!
 >Very to the point and focused group. It tickles my autism<br>
 >-<cite>Kaiju</cite>
 
+>I am really glad I've stumbled upon this club because I've met a lot of beautiful supporting people here. I was surprised to see a 
+>"safe_place" channel and went through it just to see how respectful and supportive you are to each other. Special mention to BW who I 
+>hooked to because of their immense knowledge base about the game and readiness to answer the most silly question about the game, which takes patience<br>
+>-<cite>kamik0r0su</cite>
+
 >It's so nice to be in a club full of friendly people!<br>
 >-<cite>KarismaticAlbino</cite>
 

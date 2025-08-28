@@ -1,7 +1,7 @@
 ---
 title: "William Shakespeare's Ham-let"
 description: "Which animal is the rudest?"
-pubDate: "Aug 19 2025"
+pubDate: "Aug 26 2025"
 heroImage: "/hamlet.jpg"
 ---
 

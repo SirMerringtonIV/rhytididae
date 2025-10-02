@@ -1,5 +1,5 @@
 ---
-title: "Would you still love me if I was a worm"
+title: "Would you still love me if I was a worm?"
 description: "Your partner is a worm!"
 pubDate: "2025-09-09"
 heroImage: "/drunk_beetles.jpg"

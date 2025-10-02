@@ -1,7 +1,7 @@
 ---
 title: "The Wicker Man-tis"
 description: "What would you create?"
-pubDate: "Sep 2nd 2025"
+pubDate: "Sept 2nd 2025"
 heroImage: "/the_wicker_mantis.jpg"
 ---
 

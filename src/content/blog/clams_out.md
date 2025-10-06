@@ -78,7 +78,7 @@ Here are their answers!
 >-<cite>ObiJimbob</cite>
 
 
-><Push  ups. Not a fan of the french fry. Potayto potahtobr>
+>Push  ups. Not a fan of the french fry. Potayto potahto<br>
 >-<cite>OHeck</cite>
 
 

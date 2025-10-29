@@ -2,7 +2,7 @@
 title: "They see me surfin' they hatin'"
 description: "Whats a good pet name?"
 pubDate: "2025-10-28"
-heroImage: "/theyhatin.png"
+heroImage: "/theyhatin.jpg"
 ---
 
 This week we asked our players "What is the coolest name for a pet?" 

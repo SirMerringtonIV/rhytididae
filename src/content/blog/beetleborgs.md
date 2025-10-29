@@ -1,6 +1,6 @@
 ---
 title: "Big Bad Beetleborgs"
-description: "Whats good in our Snail lives?"
+description: "What grinds our snails gears?"
 pubDate: "2025-10-14"
 heroImage: "/beetleborgs.png"
 ---

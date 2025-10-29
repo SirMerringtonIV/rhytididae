@@ -39,7 +39,7 @@ Here are their answers!
 
 >that's not mine, but funny)<br>
 <video width="576" height="894" controls>
- <source src="./hamsters.mp4" type="video/mp4">
+ <source src="/hamsters.mp4" type="video/mp4">
 </video><br>
 >-<cite>DraKot</cite>
 

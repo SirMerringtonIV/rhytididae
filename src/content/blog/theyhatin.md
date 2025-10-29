@@ -38,8 +38,8 @@ Here are their answers!
 
 
 >that's not mine, but funny)<br>
-<video src="/hamsters.mp4" width="576" height="894" controls>
-</video>
+><video src="/hamsters.mp4" width="576" height="894" controls>
+</video><br>
 ><br>
 >-<cite>DraKot</cite>
 

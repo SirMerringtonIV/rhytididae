@@ -1,23 +1,22 @@
 ---
-import { readExcel } from '../lib/readExcel.server.ts';
-
-const {
-  file,              // path to .xlsx
+const { 
+  file,              // Excel filename, required
   responseCol = 9,   // J
   userCol = 4,       // E
   winnerCol = 10,    // F
   questionCol = 9    // J
 } = Astro.props;
 
-// Read Excel file server-side
-const rows = readExcel(file);
+if (!file) throw new Error("You must provide a 'file' prop to Responses.astro");
 
-// Question (from first row)
-const question = rows?.[0]?.[questionCol]
-  ? String(rows[0][questionCol]).trim()
-  : "";
+// Fetch rows from the API route
+const res = await fetch(`/api/responses?file=${file}`);
+const rows = await res.json();
 
-// Process entries
+// Question
+const question = rows?.[0]?.[questionCol] ? String(rows[0][questionCol]).trim() : '';
+
+// Entries
 const entries = rows
   .slice(1)
   .filter(r => r[responseCol] && r[userCol])
@@ -30,23 +29,11 @@ const entries = rows
 const winner = entries.find(e => e.isWinner);
 const others = entries
   .filter(e => !e.isWinner)
-  .sort((a, b) =>
-    a.user.localeCompare(b.user, undefined, { sensitivity: "base" })
-  );
+  .sort((a, b) => a.user.localeCompare(b.user, undefined, { sensitivity: 'base' }));
 ---
 
 {question && <h2>This week we asked our players: {question}</h2>}
 
-{winner && (
-  <div>
-    <strong>Winner:</strong> {winner.user} — {winner.response}
-  </div>
-)}
+{winner && <div><strong>Winner:</strong> {winner.user} — {winner.response}</div>}
 
-{others.length > 0 && (
-  <ul>
-    {others.map(e => (
-      <li>{e.user}: {e.response}</li>
-    ))}
-  </ul>
-)}
+{others.length > 0 && <ul>{others.map(e => <li>{e.user}: {e.response}</li>)}</ul>}

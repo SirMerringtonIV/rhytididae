@@ -1,15 +1,8 @@
 ---
-import { readExcel } from '../../server/readExcel.ts';
+import { readExcel } from '../lib/readExcel.server.ts';
 
-const {
-  file,
-  responseCol = 9,   // J
-  userCol = 4,       // E
-  winnerCol = 10,    // F
-  questionCol = 9    // J
-} = Astro.props;
+const { file, responseCol = 9, userCol = 4, winnerCol = 10, questionCol = 9 } = Astro.props;
 
-// Read Excel server-side
 const rows = readExcel(file);
 
 // Question (J1)

@@ -1,25 +1,35 @@
 ---
 import path from "path";
 import * as XLSX from "xlsx";
+import fs from "fs";
 
 const {
-  file,              // path to .xlsx
+  file,              // path to .xlsx (relative to /src)
   responseCol = 9,   // J
   userCol = 4,       // E
-  winnerCol = 10,     // F
+  winnerCol = 10,    // F
   questionCol = 9    // J
 } = Astro.props;
 
-const workbook = XLSX.readFile(path.resolve(file));
+// Resolve file path relative to project root (server-side)
+const filePath = path.resolve('./', file);
+
+// Ensure file exists
+if (!fs.existsSync(filePath)) {
+  throw new Error(`Excel file not found: ${filePath}`);
+}
+
+// Read workbook and sheet (server-side)
+const workbook = XLSX.readFile(filePath);
 const sheet = workbook.Sheets[workbook.SheetNames[2]];
 const rows = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
-// Question (J1)
+// Extract question from the first row
 const question = rows?.[0]?.[questionCol]
   ? String(rows[0][questionCol]).trim()
   : "";
 
-// Entries
+// Process entries
 const entries = rows
   .slice(1)
   .filter(r => r[responseCol] && r[userCol])
@@ -36,3 +46,23 @@ const others = entries
     a.user.localeCompare(b.user, undefined, { sensitivity: "base" })
   );
 ---
+
+<!-- Render the question -->
+{question && <h2>This week we asked our players: {question}</h2>}
+
+<!-- Render the winner -->
+{winner && (
+  <div>
+    <strong>Winner:</strong> {winner.user} — {winner.response}
+  </div>
+)}
+
+<!-- Render the other entries alphabetically -->
+{others.length > 0 && (
+  <ul>
+    {others.map(e => (
+      <li>{e.user}: {e.response}</li>
+    ))}
+  </ul>
+)}
+

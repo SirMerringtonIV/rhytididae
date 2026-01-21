@@ -14,4 +14,12 @@ export default defineConfig({
       enabled: true,
     },
   }),
+  vite: {
+    resolve: {
+      alias: {
+        '~': new URL('./src', import.meta.url),
+      },
+    },
+  },
 });
+

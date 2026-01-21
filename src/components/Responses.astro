@@ -1,10 +1,9 @@
 ---
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 
 const {
-  file,              // JSON filename passed as prop, e.g., "starmantis.json"
+  file,              // JSON filename passed as prop
   responseCol = 9,   // J
   userCol = 4,       // E
   winnerCol = 10,    // F
@@ -13,22 +12,17 @@ const {
 
 if (!file) throw new Error("You must provide a 'file' prop to Responses.astro");
 
-// --- RESOLVE PROJECT ROOT RELIABLY ---
-const projectRoot = fileURLToPath(new URL('../../../../', import.meta.url));
-
-// --- JSON PATH ---
-const jsonPath = path.join(projectRoot, 'public', 'data', file);
+// --- READ JSON AT BUILD TIME ---
+const jsonPath = path.resolve('~/public/data', file);
 if (!fs.existsSync(jsonPath)) {
   throw new Error(`JSON file not found: ${jsonPath}`);
 }
-
-// --- READ JSON ---
 const rows = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
 
-// --- EXTRACT QUESTION ---
+// Question (first row)
 const question = rows?.[0]?.[questionCol] ? String(rows[0][questionCol]).trim() : '';
 
-// --- EXTRACT ENTRIES ---
+// Entries
 const entries = rows
   .slice(1)
   .filter(r => r[responseCol] && r[userCol])
@@ -41,7 +35,7 @@ const entries = rows
 const winner = entries.find(e => e.isWinner);
 const others = entries
   .filter(e => !e.isWinner)
-  .sort((a, b) => a.user.localeCompare(b.user, undefined, { sensitivity: 'base' }));
+  .sort((a, b) => a.user.localeCompare(b.user, undefined, { sensitivity: "base" }));
 ---
 
 {question && <h2>This week we asked our players: {question}</h2>}

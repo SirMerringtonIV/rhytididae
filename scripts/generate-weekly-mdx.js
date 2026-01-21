@@ -1,23 +1,25 @@
 // scripts/generate-weekly-mdx.js
-// Run with: node scripts/generate-weekly-mdx.js
+// Run: node scripts/generate-weekly-mdx.js
 
 import fs from 'fs';
 import path from 'path';
 import XLSX from 'xlsx';
 
 // --- CONFIG ---
-const excelDir = path.resolve('./data');       // Where your Excel files live
-const jsonDir = path.resolve('./src/data');    // Where JSON will be saved
-const blogDir = path.resolve('./src/content/blog'); // Where MDX will be saved
+const excelDir = path.resolve('./data');       // Source Excel files
+const jsonDir = path.resolve('./public/data'); // JSON output for fetch
+const blogDir = path.resolve('./src/content/blog'); // MDX output
 
-const sheetIndex = 2; // 0-based index: 2 = third sheet
+const sheetIndex = 2; // 0-based: 2 = third sheet
 
 // --- ENSURE FOLDERS EXIST ---
 if (!fs.existsSync(jsonDir)) fs.mkdirSync(jsonDir, { recursive: true });
 if (!fs.existsSync(blogDir)) fs.mkdirSync(blogDir, { recursive: true });
 
 // --- LIST EXCEL FILES ---
-const files = fs.existsSync(excelDir) ? fs.readdirSync(excelDir).filter(f => f.endsWith('.xlsx')) : [];
+const files = fs.existsSync(excelDir)
+  ? fs.readdirSync(excelDir).filter(f => f.endsWith('.xlsx'))
+  : [];
 if (files.length === 0) {
   console.log('No Excel files found in', excelDir);
   process.exit(0);
@@ -43,7 +45,7 @@ files.forEach(file => {
   const rows = XLSX.utils.sheet_to_json(sheet, { header: 1 });
   console.log(`  Rows found in third sheet: ${rows.length}`);
 
-  // --- GENERATE JSON ---
+  // --- GENERATE JSON IN /public/data ---
   const jsonFileName = file.replace('.xlsx', '.json');
   const jsonPath = path.join(jsonDir, jsonFileName);
   fs.writeFileSync(jsonPath, JSON.stringify(rows, null, 2));

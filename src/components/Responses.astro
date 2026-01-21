@@ -1,16 +1,23 @@
 ---
 import { readExcel } from '../lib/readExcel.server.ts';
 
-const { file, responseCol = 9, userCol = 4, winnerCol = 10, questionCol = 9 } = Astro.props;
+const {
+  file,              // path to .xlsx
+  responseCol = 9,   // J
+  userCol = 4,       // E
+  winnerCol = 10,    // F
+  questionCol = 9    // J
+} = Astro.props;
 
+// Read Excel file server-side
 const rows = readExcel(file);
 
-// Question (J1)
+// Question (from first row)
 const question = rows?.[0]?.[questionCol]
   ? String(rows[0][questionCol]).trim()
   : "";
 
-// Entries
+// Process entries
 const entries = rows
   .slice(1)
   .filter(r => r[responseCol] && r[userCol])

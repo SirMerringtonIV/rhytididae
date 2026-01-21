@@ -1,9 +1,10 @@
 ---
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 const {
-  file,              // JSON filename passed as prop
+  file,              // JSON filename passed as prop, e.g., "starmantis.json"
   responseCol = 9,   // J
   userCol = 4,       // E
   winnerCol = 10,    // F
@@ -12,10 +13,11 @@ const {
 
 if (!file) throw new Error("You must provide a 'file' prop to Responses.astro");
 
-// --- RESOLVE JSON PATH RELATIVE TO PROJECT ROOT ---
-const projectRoot = process.cwd(); // reliable root in build and local
-const jsonPath = path.join(projectRoot, 'public', 'data', file);
+// --- RESOLVE PROJECT ROOT RELIABLY ---
+const projectRoot = fileURLToPath(new URL('../../../../', import.meta.url));
 
+// --- JSON PATH ---
+const jsonPath = path.join(projectRoot, 'public', 'data', file);
 if (!fs.existsSync(jsonPath)) {
   throw new Error(`JSON file not found: ${jsonPath}`);
 }
@@ -23,10 +25,10 @@ if (!fs.existsSync(jsonPath)) {
 // --- READ JSON ---
 const rows = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
 
-// --- QUESTION ---
+// --- EXTRACT QUESTION ---
 const question = rows?.[0]?.[questionCol] ? String(rows[0][questionCol]).trim() : '';
 
-// --- ENTRIES ---
+// --- EXTRACT ENTRIES ---
 const entries = rows
   .slice(1)
   .filter(r => r[responseCol] && r[userCol])
@@ -39,7 +41,7 @@ const entries = rows
 const winner = entries.find(e => e.isWinner);
 const others = entries
   .filter(e => !e.isWinner)
-  .sort((a, b) => a.user.localeCompare(b.user, undefined, { sensitivity: "base" }));
+  .sort((a, b) => a.user.localeCompare(b.user, undefined, { sensitivity: 'base' }));
 ---
 
 {question && <h2>This week we asked our players: {question}</h2>}

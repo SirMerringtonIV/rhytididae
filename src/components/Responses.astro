@@ -12,17 +12,21 @@ const {
 
 if (!file) throw new Error("You must provide a 'file' prop to Responses.astro");
 
-// --- READ JSON AT BUILD TIME ---
-const jsonPath = path.resolve('./public/data', file);
+// --- RESOLVE JSON PATH RELATIVE TO PROJECT ROOT ---
+const projectRoot = process.cwd(); // reliable root in build and local
+const jsonPath = path.join(projectRoot, 'public', 'data', file);
+
 if (!fs.existsSync(jsonPath)) {
   throw new Error(`JSON file not found: ${jsonPath}`);
 }
+
+// --- READ JSON ---
 const rows = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
 
-// Question (first row)
+// --- QUESTION ---
 const question = rows?.[0]?.[questionCol] ? String(rows[0][questionCol]).trim() : '';
 
-// Entries
+// --- ENTRIES ---
 const entries = rows
   .slice(1)
   .filter(r => r[responseCol] && r[userCol])

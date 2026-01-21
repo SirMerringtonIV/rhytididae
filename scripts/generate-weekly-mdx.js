@@ -7,7 +7,7 @@ import XLSX from 'xlsx';
 
 // --- CONFIG ---
 const excelDir = path.resolve('./data');       // Source Excel files
-const jsonDir = path.resolve('./public/data'); // JSON output for fetch
+const jsonDir = path.resolve('./public/data'); // JSON output for Astro
 const blogDir = path.resolve('./src/content/blog'); // MDX output
 
 const sheetIndex = 2; // 0-based: 2 = third sheet
@@ -54,11 +54,10 @@ files.forEach(file => {
   // --- GENERATE MDX ---
   const today = new Date();
   const yyyy = today.getFullYear();
-  const mm = String(today.getMonth() + 1).padStart(2, '0'); // Months 0-11
+  const mm = String(today.getMonth() + 1).padStart(2, '0');
   const dd = String(today.getDate()).padStart(2, '0');
   const dateStr = `${yyyy}-${mm}-${dd}`;
 
-  // MDX filename: week-YYYY-MM-DD-[originalname].mdx
   const baseName = file.replace('.xlsx', '');
   const mdxFileName = `week-${dateStr}-${baseName}.mdx`;
   const mdxPath = path.join(blogDir, mdxFileName);

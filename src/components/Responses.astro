@@ -13,7 +13,7 @@ const {
 if (!file) throw new Error("You must provide a 'file' prop to Responses.astro");
 
 // --- READ JSON AT BUILD TIME ---
-const jsonPath = path.resolve('~/public/data', file);
+const jsonPath = path.resolve('./public/data', file);
 if (!fs.existsSync(jsonPath)) {
   throw new Error(`JSON file not found: ${jsonPath}`);
 }

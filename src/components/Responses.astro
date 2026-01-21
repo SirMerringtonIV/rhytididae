@@ -1,0 +1,38 @@
+---
+import path from "path";
+import * as XLSX from "xlsx";
+
+const {
+  file,              // path to .xlsx
+  responseCol = 9,   // J
+  userCol = 4,       // E
+  winnerCol = 10,     // F
+  questionCol = 9    // J
+} = Astro.props;
+
+const workbook = XLSX.readFile(path.resolve(file));
+const sheet = workbook.Sheets[workbook.SheetNames[2]];
+const rows = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+
+// Question (J1)
+const question = rows?.[0]?.[questionCol]
+  ? String(rows[0][questionCol]).trim()
+  : "";
+
+// Entries
+const entries = rows
+  .slice(1)
+  .filter(r => r[responseCol] && r[userCol])
+  .map(r => ({
+    response: String(r[responseCol]).trim(),
+    user: String(r[userCol]).trim(),
+    isWinner: Boolean(r[winnerCol])
+  }));
+
+const winner = entries.find(e => e.isWinner);
+const others = entries
+  .filter(e => !e.isWinner)
+  .sort((a, b) =>
+    a.user.localeCompare(b.user, undefined, { sensitivity: "base" })
+  );
+---

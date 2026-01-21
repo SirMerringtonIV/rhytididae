@@ -20,7 +20,8 @@
     "@astrojs/sitemap": "3.3.0",
     "astro": "5.7.4",
     "astro-navbar": "^2.4.0",
-    "typescript": "5.8.3"
+    "typescript": "5.8.3",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "wrangler": "4.16.1"

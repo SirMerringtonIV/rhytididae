@@ -1,17 +1,10 @@
 ---
-const { 
-  file,              // Excel filename, required
-  responseCol = 9,   // J
-  userCol = 4,       // E
-  winnerCol = 10,    // F
-  questionCol = 9    // J
-} = Astro.props;
+const { file, responseCol = 9, userCol = 4, winnerCol = 10, questionCol = 9 } = Astro.props;
 
 if (!file) throw new Error("You must provide a 'file' prop to Responses.astro");
 
-// Fetch rows from the API route
-const res = await fetch(`/api/responses?file=${file}`);
-const rows = await res.json();
+// Import the JSON statically
+import rows from `../data/${file}`;
 
 // Question
 const question = rows?.[0]?.[questionCol] ? String(rows[0][questionCol]).trim() : '';
@@ -29,7 +22,7 @@ const entries = rows
 const winner = entries.find(e => e.isWinner);
 const others = entries
   .filter(e => !e.isWinner)
-  .sort((a, b) => a.user.localeCompare(b.user, undefined, { sensitivity: 'base' }));
+  .sort((a,b) => a.user.localeCompare(b.user, undefined, {sensitivity:'base'}));
 ---
 
 {question && <h2>This week we asked our players: {question}</h2>}

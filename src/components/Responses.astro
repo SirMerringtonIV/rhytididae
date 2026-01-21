@@ -1,15 +1,27 @@
 ---
-const { file, responseCol = 9, userCol = 4, winnerCol = 10, questionCol = 9 } = Astro.props;
+const {
+  file,              // JSON filename passed as prop
+  responseCol = 9,   // J
+  userCol = 4,       // E
+  winnerCol = 10,    // F
+  questionCol = 9    // J
+} = Astro.props;
 
 if (!file) throw new Error("You must provide a 'file' prop to Responses.astro");
 
-// Import the JSON statically
-import rows from `../data/${file}`;
+// Fetch the JSON dynamically from the public build output
+// JSON files should be in /src/data, which Astro copies to /_astro/data
+const res = await fetch(`/data/${file}`);
+if (!res.ok) {
+  throw new Error(`Could not load JSON file: /data/${file}`);
+}
 
-// Question
+const rows = await res.json();
+
+// Question (first row, questionCol)
 const question = rows?.[0]?.[questionCol] ? String(rows[0][questionCol]).trim() : '';
 
-// Entries
+// Entries (skip first row)
 const entries = rows
   .slice(1)
   .filter(r => r[responseCol] && r[userCol])
@@ -22,11 +34,14 @@ const entries = rows
 const winner = entries.find(e => e.isWinner);
 const others = entries
   .filter(e => !e.isWinner)
-  .sort((a,b) => a.user.localeCompare(b.user, undefined, {sensitivity:'base'}));
+  .sort((a, b) => a.user.localeCompare(b.user, undefined, { sensitivity: "base" }));
 ---
-
 {question && <h2>This week we asked our players: {question}</h2>}
 
 {winner && <div><strong>Winner:</strong> {winner.user} — {winner.response}</div>}
 
-{others.length > 0 && <ul>{others.map(e => <li>{e.user}: {e.response}</li>)}</ul>}
+{others.length > 0 && (
+  <ul>
+    {others.map(e => <li>{e.user}: {e.response}</li>)}
+  </ul>
+)}

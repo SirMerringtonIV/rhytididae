@@ -40,15 +40,16 @@ const others = entries
 
 {question && <h2>This week we asked our players: {question}</h2>}
 
-{winner && <div><strong>Winner:</strong> {winner.user} — {winner.response}</div>}
-
-<!-- 
-{others.length > 0 && (
-  <ul>
-    {others.map(e => <li>{e.user}: {e.response}</li>)}
-  </ul>
-)} 
--->
+{winner && (
+  <div class="winner">
+    <h3>Winner</h3>
+    <blockquote>
+      {winner.response}
+      <br />
+      -<cite>{winner.user}</cite>
+    </blockquote>
+  </div>
+)}
 
 {others.length > 0 && (
   <div class="responses">
@@ -61,3 +62,21 @@ const others = entries
     ))}
   </div>
 )}
+
+<style>
+  blockquote {
+    margin: 2rem 0; /* space between responses */
+    padding-left: 1rem;
+    border-left: 3px solid #ccc;
+    font-style: italic;
+  }
+
+  cite {
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .winner blockquote {
+    border-left-color: gold;
+  }
+</style>

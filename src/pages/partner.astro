@@ -484,6 +484,14 @@ const partners = [
   color: #3730a3;
 }
 
+.filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;      /* vertically center items */
+  justify-content: space-between; /* left/right spacing */
+  gap: 1rem;
+}
+
 /* Responsive layout */
 @media (max-width: 768px) {
   .partner-card {
@@ -495,6 +503,14 @@ const partners = [
     width: 100%;
     height: auto;
     margin-top: 0.5rem;
+  }
+  
+  .filter-controls {
+    flex-direction: column; /* stack on small screens */
+    align-items: stretch;   /* full width on mobile */
+  }
+  .filter-controls > div {
+    width: 100%; /* each input/select full width */
   }
 }
 </style>

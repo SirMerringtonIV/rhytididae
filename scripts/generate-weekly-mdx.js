@@ -59,13 +59,15 @@ files.forEach(file => {
   const dateStr = `${yyyy}-${mm}-${dd}`;
 
   const baseName = file.replace('.xlsx', '');
-  const mdxFileName = `week-${dateStr}-${baseName}.mdx`;
+  const mdxFileName = `${baseName}.mdx`;
   const mdxPath = path.join(blogDir, mdxFileName);
 
   if (!fs.existsSync(mdxPath)) {
     const mdxContent = `---
 title: "Weekly Responses - ${dateStr}"
+description:
 pubDate: "${dateStr}"
+heroImage:
 ---
 
 import Responses from '../../components/Responses.astro';

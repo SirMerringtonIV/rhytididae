@@ -42,8 +42,16 @@ const others = entries
 
 {winner && <div><strong>Winner:</strong> {winner.user} — {winner.response}</div>}
 
+<!-- 
 {others.length > 0 && (
   <ul>
     {others.map(e => <li>{e.user}: {e.response}</li>)}
+  </ul>
+)} 
+-->
+
+{others.length > 0 && (
+  <ul>
+    {others.map(e => >{e.response}<br> >-<cite>{e.user}</cite></li>)}
   </ul>
 )}

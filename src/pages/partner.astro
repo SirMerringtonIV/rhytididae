@@ -4,45 +4,35 @@ import Layout from '../layouts/BlogPost.astro';
 const partners = [
   {
     name: "Kim Chi-yum",
-	image: "/partners/kimchiyum.jpg",
-    bonuses: [
+    image: "/partners/kimchiyum.jpg",
+    effects: [
       "TECH +5",
       "Tadpole Pond B-tad Output +0.3%",
+      "Angel Minion MAX +1",
+      "Per 10 Koryeon Snails in battle: +100 Troop HP",
     ],
-    minion: "Angel",
-    combat: "Per 10 Koryeon Snails in battle: +100 Troop HP",
   },
   {
     name: "Big Gal Park",
-	image: "/partners/biggalpark.jpg",
-    bonuses: [
+    image: "/partners/biggalpark.jpg",
+    effects: [
       "FAME +5",
       "Snail ATK +5",
+      "Demon Minion MAX +1",
+      "Per 10 Ironball Throwers in battle: +10 Troop ATK",
     ],
-    minion: "Demon",
-    combat: "Per 10 Ironball Throwers in battle: +10 Troop ATK",
   },
   {
     name: "Chichikaka",
-	image: "/partners/chichikaka.jpg",
-    bonuses: [
+    image: "/partners/chichikaka.jpg",
+    effects: [
       "CIV +5",
       "Snail ATK +5",
+      "Mutant Minion MAX +1",
+      "Per 10 Chikas in battle: +10 Troop ATK",
     ],
-    minion: "Mutant",
-    combat: "Per 10 Chikas in battle: +10 Troop ATK",
   },
-  {
-    name: "Prince Nerd's Soul",
-	image: "/partners/princenerdssoul.jpg",
-    bonuses: [
-      "FTH +5",
-      "Soul Offering SPD +0.6%",
-    ],
-    minion: "Zombie",
-    combat: "Per 10 Tomb Figures in battle: +10 Troop DEF",
-  },
-  // 👉 Continue the same pattern for the rest
+  // ... add all other partners similarly
 ];
 ---
 
@@ -56,7 +46,7 @@ const partners = [
     <h1 class="text-3xl font-bold mb-2">Partner Bonuses</h1>
     <p class="text-gray-600 max-w-2xl">
       Each partner provides permanent bonuses and combat scaling effects.
-      Browse the list below to compare benefits at a glance.
+      All bonuses increase <strong>per level up</strong>.
     </p>
   </header>
 
@@ -64,24 +54,18 @@ const partners = [
     {partners.map((partner) => (
       <article class="partner-card">
         <div class="card-content">
-			<h2 class="text-xl font-semibold mb-2">{partner.name}</h2>
+          <h2 class="text-xl font-semibold mb-2">{partner.name}</h2>
 
-			<!-- Per Level Up Section -->
-			<div class="per-level-up mb-2">
-				<strong>Per level up:</strong>
-				<ul class="bonus-list mb-2">
-				{partner.bonuses.map((bonus) => (
-					<li class="bonus-item">{bonus}</li>
-				))}
-				</ul>
-				<div class="details">
-				<p>
-					<strong>{partner.minion} Minion</strong> MAX +1
-				</p>
-				<p class="combat">{partner.combat}</p>
-				</div>
-			</div>
-		</div>
+          <!-- Per Level Up Section -->
+          <div class="per-level-up mb-2">
+            <strong>Per level up:</strong>
+            <ul class="effect-list mb-2">
+              {partner.effects.map((effect) => (
+                <li class="effect-item">{effect}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
         <div class="card-image">
           <img src={partner.image} alt={partner.name} />
@@ -99,7 +83,7 @@ const partners = [
   border-radius: 0.75rem;
   background: var(--card-bg, #ffffff);
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  align-items: flex-start; /* content and image aligned at top */
+  align-items: flex-start;
   transition: transform 0.2s ease;
 }
 
@@ -108,38 +92,20 @@ const partners = [
 }
 
 .card-content {
-  flex: 1; /* content takes remaining space */
+  flex: 1;
 }
 
 .card-image {
-  flex: 0 0 auto; /* image keeps its width */
+  flex: 0 0 auto;
   display: flex;
   align-items: flex-start;
 }
 
 .card-image img {
-  width: 140px;     /* fixed width */
-  height: auto;     /* preserve aspect ratio */
+  width: 140px;
+  height: auto;
   object-fit: contain;
   border-radius: 0.5rem;
-}
-
-.bonus-list {
-  list-style: disc;
-  padding-left: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.bonus-item {
-  font-size: 0.9rem;
-  color: #3730a3;
-}
-
-.details {
-  font-size: 0.95rem;
-  color: #444;
 }
 
 .per-level-up {
@@ -152,14 +118,20 @@ const partners = [
 .per-level-up strong {
   display: block;
   margin-bottom: 0.25rem;
-  color: #111827; /* dark text */
+  color: #111827;
 }
 
+.effect-list {
+  list-style: disc;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
 
-.combat {
-  margin-top: 0.25rem;
+.effect-item {
   font-size: 0.9rem;
-  color: #555;
+  color: #3730a3;
 }
 
 /* Responsive layout */
@@ -170,9 +142,10 @@ const partners = [
   }
 
   .card-image img {
-    width: 100%;  /* full width on mobile */
+    width: 100%;
     height: auto;
     margin-top: 0.5rem;
   }
 }
 </style>
+

@@ -64,21 +64,24 @@ const partners = [
     {partners.map((partner) => (
       <article class="partner-card">
         <div class="card-content">
-          <h2 class="text-xl font-semibold mb-2">{partner.name}</h2>
+			<h2 class="text-xl font-semibold mb-2">{partner.name}</h2>
 
-          <ul class="bonus-list mb-2">
-            {partner.bonuses.map((bonus) => (
-              <li class="bonus-item">{bonus}</li>
-            ))}
-          </ul>
-
-          <div class="details">
-            <p>
-              <strong>{partner.minion} Minion</strong> MAX +1
-            </p>
-            <p class="combat">{partner.combat}</p>
-          </div>
-        </div>
+			<!-- Per Level Up Section -->
+			<div class="per-level-up mb-2">
+				<strong>Per level up:</strong>
+				<ul class="bonus-list mb-2">
+				{partner.bonuses.map((bonus) => (
+					<li class="bonus-item">{bonus}</li>
+				))}
+				</ul>
+				<div class="details">
+				<p>
+					<strong>{partner.minion} Minion</strong> MAX +1
+				</p>
+				<p class="combat">{partner.combat}</p>
+				</div>
+			</div>
+		</div>
 
         <div class="card-image">
           <img src={partner.image} alt={partner.name} />
@@ -138,6 +141,20 @@ const partners = [
   font-size: 0.95rem;
   color: #444;
 }
+
+.per-level-up {
+  background: #f9fafb; /* light gray background */
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.per-level-up strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #111827; /* dark text */
+}
+
 
 .combat {
   margin-top: 0.25rem;

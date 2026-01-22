@@ -24,7 +24,7 @@ const partners = [
   },
   {
     name: "Chichikaka",
-	image: "/partners/chichikaka/jpg",
+	image: "/partners/chichikaka.jpg",
     bonuses: [
       "CIV +5",
       "Snail ATK +5",
@@ -93,12 +93,24 @@ const partners = [
   .partner-card {
 	display: flex;
 	justify-content: space-between;
-	align-items: flex-start;
+	align-items: stretch;  /* important: stretch image to match card height */
 	padding: 1.25rem;
 	border-radius: 0.75rem;
 	background: var(--card-bg, #ffffff);
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 	gap: 1rem;
+  }
+
+  .card-image {
+	flex: 0 0 auto;   /* don’t shrink or grow width */
+	width: 120px;     /* adjust as desired */
+  }
+  
+  .card-image img {
+	height: 100%;     /* fill the height of the card */
+	width: auto;      /* maintain aspect ratio */
+	object-fit: cover; /* crop if necessary */
+	border-radius: 0.5rem;
   }
 
   .partner-card h2 {
@@ -110,26 +122,22 @@ const partners = [
 	flex: 1; /* Take up remaining space */
   }
   
-  .card-image img {
-	width: 100px;        /* Fixed width */
-	height: 100px;       /* Fixed height or auto */
-	object-fit: cover;   /* Crop if necessary */
-	border-radius: 0.5rem;
-  }
-  
   @media (max-width: 640px) {
     .partner-card {
 		flex-direction: column;
 		align-items: flex-start;
     }
+	
+	.card-image {
+		width: 100%;        /* full width */
+		margin-top: 0.5rem;
+    }
 
     .card-image img {
-		width: 80px;
-		height: 80px;
-		margin-top: 0.5rem;
+		width: 100%;
+		height: auto;
 	}
   }
-
 
   .bonus-list {
 	list-style: disc;

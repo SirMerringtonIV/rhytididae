@@ -38,11 +38,15 @@ const others = entries
   .sort((a, b) => a.user.localeCompare(b.user, undefined, { sensitivity: "base" }));
 ---
 
-{question && <h2>This week we asked our players: {question}</h2>}
+{question && (
+  <p class="question">
+    <strong>This week we asked our players:</strong> {question}
+  </p>
+)}
 
 {winner && (
   <div class="winner">
-    <h3>Winner</h3>
+    <h3>Winner, mascot for the week</h3>
     <blockquote>
       {winner.response}
       <br />
@@ -78,5 +82,8 @@ const others = entries
 
   .winner blockquote {
     border-left-color: gold;
+  }
+  .question {
+    margin-bottom: 2rem;
   }
 </style>

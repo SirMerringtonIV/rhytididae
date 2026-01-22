@@ -1,6 +1,3 @@
-// scripts/generate-weekly-mdx.js
-// Run: node scripts/generate-weekly-mdx.js
-
 import fs from 'fs';
 import path from 'path';
 import XLSX from 'xlsx';
@@ -33,6 +30,21 @@ files.forEach(file => {
 
   const excelPath = path.join(excelDir, file);
   const workbook = XLSX.readFile(excelPath);
+  
+  // --- READ TITLE FROM SHEET 1, CELL B1 ---
+  const sheet1 = workbook.Sheets[workbook.SheetNames[0]]; // first sheet
+  const titleCell = sheet1?.B1?.v;
+  const descriptionCell = sheet1?.B5?.v;
+
+  const title =
+    typeof titleCell === 'string' && titleCell.trim()
+      ? titleCell.trim()
+      : null;
+	  
+  const description =
+    typeof descriptionCell === 'string' && descriptionCell.trim()
+      ? descriptionCell.trim()
+      : '';
 
   // --- READ THIRD SHEET ONLY ---
   const sheetNames = workbook.SheetNames;
@@ -64,10 +76,10 @@ files.forEach(file => {
 
   if (!fs.existsSync(mdxPath)) {
     const mdxContent = `---
-title: "Weekly Responses - ${dateStr}"
-description:
+title: "${title ?? `Weekly Responses - ${dateStr}`}"
+description: "${description}"
 pubDate: "${dateStr}"
-heroImage:
+heroImage: ""
 ---
 
 import Responses from '../../components/Responses.astro';

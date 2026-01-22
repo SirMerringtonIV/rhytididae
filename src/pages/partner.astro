@@ -62,10 +62,11 @@ const partners = [
         <h2>{partner.name}</h2>
 
         <ul class="bonus-list">
-          {partner.bonuses.map((bonus) => (
-            <li class="badge">{bonus}</li>
-          ))}
-        </ul>
+			{partner.bonuses.map((bonus) => (
+				<li class="bonus-item">{bonus}</li>
+			))}
+		</ul>
+
 
         <div class="details">
           <p>
@@ -95,18 +96,16 @@ const partners = [
   }
 
   .bonus-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
+	list-style: disc;
+	padding-left: 1.25rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
   }
 
-  .badge {
-    font-size: 0.85rem;
-    padding: 0.25rem 0.5rem;
-    border-radius: 999px;
-    background: #eef2ff;
-    color: #3730a3;
-    font-weight: 500;
+  .bonus-item:marker {
+	font-size: 0.9rem;
+	color: #3730a3;
   }
 
   .details {

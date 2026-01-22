@@ -7,7 +7,7 @@ import XLSX from 'xlsx';
 
 // --- CONFIG ---
 const excelDir = path.resolve('./data');       // Source Excel files
-const jsonDir = path.resolve('./public/data/src/data/'); // JSON output for Astro
+const jsonDir = path.resolve('./public/data/'); // JSON output for Astro
 const blogDir = path.resolve('./src/content/blog'); // MDX output
 
 const sheetIndex = 2; // 0-based: 2 = third sheet

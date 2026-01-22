@@ -340,25 +340,34 @@ const partners = [
   </header>
 
   <!-- FILTER UI -->
-  <div class="filter-controls mb-6 flex flex-col sm:flex-row gap-4">
-    <div>
-      <label>
-        Filter by minion:
-        <select id="minionFilter" class="border rounded px-2 py-1">
-          <option value="">All</option>
-          <option value="Angel">Angel</option>
-          <option value="Demon">Demon</option>
-          <option value="Dragon">Dragon</option>
-          <option value="Mecha">Mecha</option>
-		  <option value="Mutant">Mutant</option>
-		  <option value="Zombie">Zombie</option>
-        </select>
-      </label>
-    </div>
-    <div>
-      <input type="text" id="partnerSearch" placeholder="Search partners..." class="border rounded px-2 py-1" />
-    </div>
+	<div class="filter-controls mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+	<!-- Minion Filter on the left -->
+	<div>
+		<label>
+		Filter by minion:
+		<select id="minionFilter" class="border rounded px-2 py-1">
+			<option value="">All</option>
+			<option value="Angel">Angel</option>
+			<option value="Demon">Demon</option>
+			<option value="Dragon">Dragon</option>
+			<option value="Mecha">Mecha</option>
+			<option value="Mutant">Mutant</option>
+			<option value="Zombie">Zombie</option>
+			<!-- add more as needed -->
+		</select>
+		</label>
+	</div>
+
+	<!-- Search box on the right -->
+	<div>
+		<input
+		type="text"
+		id="partnerSearch"
+		placeholder="Search partners..."
+		class="border rounded px-2 py-1"/>
+	</div>
   </div>
+
 
   <!-- CARDS GRID -->
   <section id="partnersGrid" class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

@@ -60,106 +60,102 @@ const partners = [
     </p>
   </header>
 
-  <section class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-	{partners.map((partner) => (
-		<article class="partner-card">
-			<div class="card-content">
-				<h2>{partner.name}</h2>
+  <section class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    {partners.map((partner) => (
+      <article class="partner-card">
+        <div class="card-content">
+          <h2 class="text-xl font-semibold mb-2">{partner.name}</h2>
 
-				<ul class="bonus-list">
-					{partner.bonuses.map((bonus) => (
-						<li class="bonus-item">{bonus}</li>
-					))}
-				</ul>
+          <ul class="bonus-list mb-2">
+            {partner.bonuses.map((bonus) => (
+              <li class="bonus-item">{bonus}</li>
+            ))}
+          </ul>
 
-				<div class="details">
-					<p>
-						<strong>{partner.minion} Minion</strong> MAX +1
-					</p>
-					<p class="combat">{partner.combat}</p>
-				</div>
-			</div>
+          <div class="details">
+            <p>
+              <strong>{partner.minion} Minion</strong> MAX +1
+            </p>
+            <p class="combat">{partner.combat}</p>
+          </div>
+        </div>
 
-			<div class="card-image">
-				<img src={partner.image} alt={partner.name} />
-			</div>
-		</article>
-	))}
-</section>
-
+        <div class="card-image">
+          <img src={partner.image} alt={partner.name} />
+        </div>
+      </article>
+    ))}
+  </section>
 </Layout>
 
 <style>
+.partner-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  background: var(--card-bg, #ffffff);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  align-items: flex-start; /* content and image aligned at top */
+  transition: transform 0.2s ease;
+}
+
+.partner-card:hover {
+  transform: translateY(-2px);
+}
+
+.card-content {
+  flex: 1; /* content takes remaining space */
+}
+
+.card-image {
+  flex: 0 0 auto; /* image keeps its width */
+  display: flex;
+  align-items: flex-start;
+}
+
+.card-image img {
+  width: 140px;     /* fixed width */
+  height: auto;     /* preserve aspect ratio */
+  object-fit: contain;
+  border-radius: 0.5rem;
+}
+
+.bonus-list {
+  list-style: disc;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.bonus-item {
+  font-size: 0.9rem;
+  color: #3730a3;
+}
+
+.details {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.combat {
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
   .partner-card {
-	display: flex;
-	justify-content: space-between;
-	align-items: stretch;  /* important: stretch image to match card height */
-	padding: 1.25rem;
-	border-radius: 0.75rem;
-	background: var(--card-bg, #ffffff);
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-	gap: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .card-image {
-	flex: 0 0 auto;   /* don’t shrink or grow width */
-	width: 120px;     /* adjust as desired */
-  }
-  
   .card-image img {
-	height: 100%;     /* fill the height of the card */
-	width: auto;      /* maintain aspect ratio */
-	object-fit: cover; /* crop if necessary */
-	border-radius: 0.5rem;
+    width: 100%;  /* full width on mobile */
+    height: auto;
+    margin-top: 0.5rem;
   }
-
-  .partner-card h2 {
-    font-size: 1.25rem;
-    font-weight: 600;
-  }
-  
-  .card-content {
-	flex: 1; /* Take up remaining space */
-  }
-  
-  @media (max-width: 640px) {
-    .partner-card {
-		flex-direction: column;
-		align-items: flex-start;
-    }
-	
-	.card-image {
-		width: 100%;        /* full width */
-		margin-top: 0.5rem;
-    }
-
-    .card-image img {
-		width: 100%;
-		height: auto;
-	}
-  }
-
-  .bonus-list {
-	list-style: disc;
-	padding-left: 1.25rem;
-	display: flex;
-	flex-direction: column;
-	gap: 0.25rem;
-  }
-
-  .bonus-item:marker {
-	font-size: 0.9rem;
-	color: #3730a3;
-  }
-
-  .details {
-    font-size: 0.95rem;
-    color: #444;
-  }
-
-  .combat {
-    margin-top: 0.25rem;
-    font-size: 0.9rem;
-    color: #555;
-  }
+}
 </style>

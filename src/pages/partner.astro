@@ -4,6 +4,7 @@ import Layout from '../layouts/BlogPost.astro';
 const partners = [
   {
     name: "Kim Chi-yum",
+	image: "/partners/kimchiyum.jpg",
     bonuses: [
       "TECH +5",
       "Tadpole Pond B-tad Output +0.3%",
@@ -13,6 +14,7 @@ const partners = [
   },
   {
     name: "Big Gal Park",
+	image: "/partners/biggalpark.jpg",
     bonuses: [
       "FAME +5",
       "Snail ATK +5",
@@ -22,6 +24,7 @@ const partners = [
   },
   {
     name: "Chichikaka",
+	image: "/partners/chichikaka/jpg".
     bonuses: [
       "CIV +5",
       "Snail ATK +5",
@@ -31,6 +34,7 @@ const partners = [
   },
   {
     name: "Prince Nerd's Soul",
+	image: "/partners/princenerdssoul.jpg",
     bonuses: [
       "FTH +5",
       "Soul Offering SPD +0.6%",
@@ -57,43 +61,75 @@ const partners = [
   </header>
 
   <section class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-    {partners.map((partner) => (
-      <article class="partner-card">
-        <h2>{partner.name}</h2>
+	{partners.map((partner) => (
+		<article class="partner-card">
+			<div class="card-content">
+				<h2>{partner.name}</h2>
 
-        <ul class="bonus-list">
-			{partner.bonuses.map((bonus) => (
-				<li class="bonus-item">{bonus}</li>
-			))}
-		</ul>
+				<ul class="bonus-list">
+					{partner.bonuses.map((bonus) => (
+						<li class="bonus-item">{bonus}</li>
+					))}
+				</ul>
 
+				<div class="details">
+					<p>
+						<strong>{partner.minion} Minion</strong> MAX +1
+					</p>
+					<p class="combat">{partner.combat}</p>
+				</div>
+			</div>
 
-        <div class="details">
-          <p>
-            <strong>{partner.minion} Minion</strong> MAX +1
-          </p>
-          <p class="combat">{partner.combat}</p>
-        </div>
-      </article>
-    ))}
-  </section>
+			<div class="card-image">
+				<img src={partner.image} alt={partner.name} />
+			</div>
+		</article>
+	))}
+</section>
+
 </Layout>
 
 <style>
   .partner-card {
-    padding: 1.25rem;
-    border-radius: 0.75rem;
-    background: var(--card-bg, #ffffff);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	padding: 1.25rem;
+	border-radius: 0.75rem;
+	background: var(--card-bg, #ffffff);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+	gap: 1rem;
   }
 
   .partner-card h2 {
     font-size: 1.25rem;
     font-weight: 600;
   }
+  
+  .card-content {
+	flex: 1; /* Take up remaining space */
+  }
+  
+  .card-image img {
+	width: 100px;        /* Fixed width */
+	height: 100px;       /* Fixed height or auto */
+	object-fit: cover;   /* Crop if necessary */
+	border-radius: 0.5rem;
+  }
+  
+  @media (max-width: 640px) {
+    .partner-card {
+		flex-direction: column;
+		align-items: flex-start;
+    }
+
+    .card-image img {
+		width: 80px;
+		height: 80px;
+		margin-top: 0.5rem;
+	}
+  }
+
 
   .bonus-list {
 	list-style: disc;

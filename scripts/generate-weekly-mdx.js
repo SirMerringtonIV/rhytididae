@@ -60,8 +60,12 @@ files.forEach(file => {
   // --- GENERATE JSON IN /public/data ---
   const jsonFileName = file.replace('.xlsx', '.json');
   const jsonPath = path.join(jsonDir, jsonFileName);
-  fs.writeFileSync(jsonPath, JSON.stringify(rows, null, 2));
-  console.log('  Generated JSON:', jsonPath);
+  if(!fs.existsSync(jsonPath)){
+	fs.writeFileSync(jsonPath, JSON.stringify(rows, null, 2));
+	console.log('  Generated JSON:', jsonPath);
+  } else {
+	  console.log('  JSON already exists:', jsonPath);
+  }
 
   // --- GENERATE MDX ---
   const today = new Date();

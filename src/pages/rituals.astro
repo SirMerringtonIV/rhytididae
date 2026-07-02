@@ -1,0 +1,248 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+
+const rituals = [
+  {
+    name: "Zombie T9",
+    image: "",
+	minion: "Zombie",
+    effects: [
+	Awaken relics from Zombie Gene Research and display them at Fissure Floor 13,333,
+	Clear the dungeon at Fl 13,333,
+	Open the death box from the dungeon, triggering a zombie invasion,
+	Defeat the Zombie King (he will beat you on the first try),
+	After losing, the zombified fissure shop lady will offer you ways to weaken him in exchange for some resources:,
+	Day 1 - 1k organ slimes,
+	Day 3 - 50 brains,
+	Day 4 - 500 glues,
+	Day 5: 300 orange reagent,
+
+	You might beat the zombie king earlier with enough power (a lot of people seem to do it after 3 or 4 days), but it's basically guaranteed after day 5.
+    ],
+  },
+  {
+    name: "Demon T9",
+    image: "",
+	minion: "Demon",
+    effects: [
+    ],
+  },
+  {
+    name: "Angel T9",
+    image: "",
+	minion: "Angel",
+    effects: [
+    ],
+  },
+  {
+    name: "Mutant T9",
+    image: "",
+	minion: "Mutant",
+    effects: [
+    ],
+  },
+  {
+    name: "Mecha T9",
+    image: "/partners/jirotoyato.jpg",
+	minion: "Mecha",
+    effects: [
+    ],
+  },
+  {
+    name: "Dragon T9",
+    image: "",
+	minion: "Dragon",
+    effects: [
+    ],
+  },
+];
+---
+
+<Layout
+  title="Partner details"
+  description="Description of all the in game partners"
+  pubDate={new Date('July 05 2025')}
+  heroImage="/partner.jpg"
+>
+  <header class="mb-10">
+    <h1 class="text-3xl font-bold mb-2">Ritual details</h1>
+    <p class="text-gray-600 max-w-2xl">
+      Here is a simple breakdown of each form types steps to complete T9 rituals.
+    </p>
+  </header>
+
+  <!-- FILTER UI -->
+	<div class="filter-controls mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+	<!-- Minion Filter on the left -->
+	<div>
+		<label>
+		Filter by form:
+		<select id="minionFilter" class="border rounded px-2 py-1">
+			<option value="">All</option>
+			<option value="Angel">Angel</option>
+			<option value="Demon">Demon</option>
+			<option value="Dragon">Dragon</option>
+			<option value="Mecha">Mecha</option>
+			<option value="Mutant">Mutant</option>
+			<option value="Zombie">Zombie</option>
+			<!-- add more as needed -->
+		</select>
+		</label>
+	</div>
+
+	<!-- Search box on the right -->
+	<div>
+		<input
+		type="text"
+		id="ritualSearch"
+		placeholder="Search ritual type..."
+		class="border rounded px-2 py-1"/>
+	</div>
+  </div>
+
+
+  <!-- CARDS GRID -->
+  <section id="partnersGrid" class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    {partners.map((partner) => (
+      <article
+        class="partner-card"
+        data-minion={partner.minion}>
+        <div class="card-content">
+          <h2 class="text-xl font-semibold mb-2">{partner.name}</h2>
+
+          <!-- Per Level Up Section -->
+          <div class="per-level-up mb-2">
+            <strong>Per level up:</strong>
+            <ul class="effect-list mb-2">
+              {partner.effects.map((effect) => (
+                <li class="effect-item">{effect}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div class="card-image">
+          <img src={partner.image} alt={partner.name} />
+        </div>
+      </article>
+    ))}
+  </section>
+
+  <!-- FILTER SCRIPT -->
+  <script>
+    const minionFilter = document.getElementById('minionFilter');
+    const searchInput = document.getElementById('ritualSearch');
+    const cards = document.querySelectorAll('#partnersGrid .partner-card');
+
+    function filterCards() {
+      const selectedMinion = minionFilter.value;
+      const query = searchInput.value.toLowerCase();
+
+      cards.forEach(card => {
+        const minion = card.dataset.minion; // hidden, used for filtering
+        const name = card.querySelector('h2').textContent.toLowerCase();
+        const effects = card.querySelector('.effect-list').textContent.toLowerCase();
+
+        const matchesMinion = !selectedMinion || minion === selectedMinion;
+        const matchesQuery = !query || name.includes(query) || effects.includes(query);
+
+        card.style.display = (matchesMinion && matchesQuery) ? '' : 'none';
+      });
+    }
+
+    minionFilter.addEventListener('change', filterCards);
+    searchInput.addEventListener('input', filterCards);
+  </script>
+
+</Layout>
+
+<style>
+.partner-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  background: var(--card-bg, #ffffff);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  align-items: flex-start;
+  transition: transform 0.2s ease;
+}
+
+.partner-card:hover {
+  transform: translateY(-2px);
+}
+
+.card-content {
+  flex: 1;
+}
+
+.card-image {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+}
+
+.card-image img {
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0.5rem;
+}
+
+.per-level-up {
+  background: #f9fafb;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.per-level-up strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #111827;
+}
+
+.effect-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.effect-item {
+  font-size: 0.9rem;
+  color: #3730a3;
+}
+
+.filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;      /* vertically center items */
+  justify-content: space-between; /* left/right spacing */
+  gap: 1rem;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .partner-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: auto;
+    margin-top: 0.5rem;
+  }
+  
+  .filter-controls {
+    flex-direction: column; /* stack on small screens */
+    align-items: stretch;   /* full width on mobile */
+  }
+  .filter-controls > div {
+    width: 100%; /* each input/select full width */
+  }
+}
+</style>

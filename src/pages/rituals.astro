@@ -5,117 +5,216 @@ const rituals = [
   {
     name: "Zombie T9",
     image: "",
-	minion: "Zombie",
-    effects: [
-	"Awaken relics from Zombie Gene Research and display them at Fissure Floor 13,333",
-	"Clear the dungeon at Fl 13,333",
-	"Open the death box from the dungeon, triggering a zombie invasion",
-	"Defeat the Zombie King (he will beat you on the first try)",
-	"After losing, the zombified fissure shop lady will offer you ways to weaken him in exchange for some resources:",
-	"Day 1 - 1k organ slimes",
-	"Day 3 - 50 brains",
-	"Day 4 - 500 glues",
-	"Day 5: 300 orange reagent",
-
-	"You might beat the zombie king earlier with enough power (a lot of people seem to do it after 3 or 4 days), but it's basically guaranteed after day 5.",
+    minion: "Zombie",
+    sections: [
+      {
+        title: "Preparation",
+        items: [
+          "Awaken relics from Zombie Gene Research and display them at Fissure Floor 13,333",
+          "Clear the dungeon at Fl 13,333",
+          "Open the death box from the dungeon, triggering a zombie invasion",
+        ],
+      },
+      {
+        title: "Boss fight",
+        items: [
+          "Defeat the Zombie King (he will beat you on the first try)",
+          "After losing, the zombified fissure shop lady will offer you ways to weaken him in exchange for some resources:",
+        ],
+      },
+      {
+        title: "Daily steps",
+        items: [
+          "Day 1 - 1k organ slimes",
+          "Day 3 - 50 brains",
+          "Day 4 - 500 glues",
+          "Day 5: 300 orange reagent",
+        ],
+      },
+      {
+        title: "Notes",
+        items: [
+          "You might beat the zombie king earlier with enough power (a lot of people seem to do it after 3 or 4 days), but it's basically guaranteed after day 5.",
+        ],
+      },
     ],
   },
   {
     name: "Demon T9",
     image: "",
-	minion: "Demon",
-    effects: [
-	"Shoot the sky with incense 5 times (using 15 incense total) to open passage to another world",
-	"fight a demon each day for 3 days (should be easy fights by the time you get here)",
-	"after defeating the 3rd, you will get a green relic",
-	"equip T8 demon form",
-	"stand in the crack/passage to other world, and shoot yourself with the incense altar (unsure if this needs 3 more incense)",
-	"when shooting, keep tapping your demon snail to keep its health above 0%, and complete the mini game",
+    minion: "Demon",
+    sections: [
+      {
+        title: "Preparation",
+        items: [
+          "Shoot the sky with incense 5 times (using 15 incense total) to open passage to another world",
+          "Equip T8 demon form",
+        ],
+      },
+      {
+        title: "Daily steps",
+        items: [
+          "Fight a demon each day for 3 days (should be easy fights by the time you get here)",
+          "After defeating the 3rd, you will get a green relic",
+        ],
+      },
+      {
+        title: "Final step",
+        items: [
+          "Stand in the crack/passage to other world, and shoot yourself with the incense altar (unsure if this needs 3 more incense)",
+          "When shooting, keep tapping your demon snail to keep its health above 0%, and complete the mini game",
+        ],
+      },
     ],
   },
   {
     name: "Angel T9",
     image: "",
-	minion: "Angel",
-    effects: [
-	"Before you start, or during the first few days of the ritual - make sure you buy at least 100 neutral souls from the vending machine - they're the bigger green souls.",
-
-	"Equip angel form",
-	"Summon 'gates of heaven' from the soul altar - 100% while in angel form will summon this",
-	"This gives you a key, which opens up a new domain - 'the promised land'",
-	"Tile 1 & 2 - minion fight",
-	"Tile 3 & 4 - minion fight, quiz",
-	"Tile 5 - minion fight, snail fight",
-	"Tile 6 - minion fight, submit 1000 green organ slime, wait 24 hours, unlocks the first 'gate'",
-	"Next set of 6 tiles:",
-	"Tile 1 & 2 - minion fight",
-	"Tile 3 & 4 - minion fight, quiz",
-	"Tile 5 - minion fight, snail fight",
-	"Tile 6 - minion fight, submit 100 'neutral' souls, 24 hour wait, then it unlocks the 2nd gate",
-	"Next set of 6 tiles:",
-	"Tile 1 - minion fight",
-	"Tile 2 - minion fight, quiz. Unlocks last green relic fragment needed",
-	"Tile 3 - minion fight",
-	"Tile 4 - minion fight",
-	"Tile 5 - minion fight, snail fight",
-	"Tile 6 - minion fight, submit 333 orange reagent, wait 24 hours, beat a snail fight",
-	"Last gate - snail fight",
-	"Complete 'Domain: the promised land'",
-
-	"It is likely in all the quizzes you'll find the answers in the 'notes' for that tile.",
+    minion: "Angel",
+    sections: [
+      {
+        title: "Preparation",
+        items: [
+          "Before you start, or during the first few days of the ritual - make sure you buy at least 100 neutral souls from the vending machine - they're the bigger green souls.",
+          "Equip angel form",
+          "Summon 'gates of heaven' from the soul altar - 100% while in angel form will summon this",
+          "This gives you a key, which opens up a new domain - 'the promised land'",
+        ],
+      },
+      {
+        title: "First gate",
+        items: [
+          "Tile 1 & 2 - minion fight",
+          "Tile 3 & 4 - minion fight, quiz",
+          "Tile 5 - minion fight, snail fight",
+          "Tile 6 - minion fight, submit 1000 green organ slime, wait 24 hours, unlocks the first 'gate'",
+        ],
+      },
+      {
+        title: "Second gate",
+        items: [
+          "Tile 1 & 2 - minion fight",
+          "Tile 3 & 4 - minion fight, quiz",
+          "Tile 5 - minion fight, snail fight",
+          "Tile 6 - minion fight, submit 100 'neutral' souls, 24 hour wait, then it unlocks the 2nd gate",
+        ],
+      },
+      {
+        title: "Final gate",
+        items: [
+          "Tile 1 - minion fight",
+          "Tile 2 - minion fight, quiz. Unlocks last green relic fragment needed",
+          "Tile 3 - minion fight",
+          "Tile 4 - minion fight",
+          "Tile 5 - minion fight, snail fight",
+          "Tile 6 - minion fight, submit 333 orange reagent, wait 24 hours, beat a snail fight",
+          "Last gate - snail fight",
+          "Complete 'Domain: the promised land'",
+        ],
+      },
+      {
+        title: "Notes",
+        items: [
+          "It is likely in all the quizzes you'll find the answers in the 'notes' for that tile.",
+        ],
+      },
     ],
   },
   {
     name: "Mutant T9",
     image: "",
-	minion: "Mutant",
-    effects: [
-	"Day 1: launch drones into the Beta Galaxy constellation to save the 'planet girl'",
-	"wait 48 hours",
-	"Day 3: planet girl arrives in the rocket",
-	"Day 3 - 14: items need to be bought from the vending machine and delivered to planet girl in the rocket",
-	"Make contact with Earths Will to receive a green relic, by getting to 100% soul offering at the altar",
-	"Equip mutant form",
-	"Enter the rocket",
-	"Beat the 'Star Monster' fight in the rocket",
-	"Pick up the egg it drops",
+    minion: "Mutant",
+    sections: [
+      {
+        title: "Preparation",
+        items: [
+          "Make contact with Earths Will to receive a green relic, by getting to 100% soul offering at the altar",
+          "Equip mutant form",
+        ],
+      },
+      {
+        title: "Daily steps",
+        items: [
+          "Day 1: launch drones into the Beta Galaxy constellation to save the 'planet girl'",
+          "Wait 48 hours",
+          "Day 3: planet girl arrives in the rocket",
+          "Day 3 - 14: items need to be bought from the vending machine and delivered to planet girl in the rocket",
+        ],
+      },
+      {
+        title: "Final step",
+        items: [
+          "Enter the rocket",
+          "Beat the 'Star Monster' fight in the rocket",
+          "Pick up the egg it drops",
+        ],
+      },
     ],
   },
   {
     name: "Mecha T9",
     image: "",
-	minion: "Mecha",
-    effects: [
-	"'Upgrade' your mecha form - it will fail with a bunch of popups and a message from Peter",
-	"Motherboard chip will speak to you",
-	"Hack the computer files for 4 days:",
-	"Submit 5 keyboard warrior minions, wait 24 hours, rewards 60k btads + 1000 wtads",
-	"Submit 5 keyboard warrior minions, wait 24 hours, fight Peter's ghost in the machine",
-	"Submit 5 keyboard warrior minions, wait 24 hours, rewards orange robot",
-	"Submit 5 keyboard warrior minions, wait 24 hours, rewards green relic",
-	"Open new 'txt' file in hacked computer",
-	"Decrypt another new file, minion fight with ghost peter, then a snail fight ghost peter again",
-	"Finish decrypting the file",
+    minion: "Mecha",
+    sections: [
+      {
+        title: "Preparation",
+        items: [
+          "'Upgrade' your mecha form - it will fail with a bunch of popups and a message from Peter",
+          "Motherboard chip will speak to you",
+          "Hack the computer files for the next 4 days",
+        ],
+      },
+      {
+        title: "Daily steps",
+        items: [
+          "Day 1: Submit 5 keyboard warrior minions, wait 24 hours, rewards 60k btads + 1000 wtads",
+          "Day 2: Submit 5 keyboard warrior minions, wait 24 hours, fight Peter's ghost in the machine",
+          "Day 3: Submit 5 keyboard warrior minions, wait 24 hours, rewards orange robot",
+          "Day 4: Submit 5 keyboard warrior minions, wait 24 hours, rewards green relic",
+        ],
+      },
+      {
+        title: "Final step",
+        items: [
+          "Open new 'txt' file in hacked computer",
+          "Decrypt another new file, minion fight with ghost peter, then a snail fight ghost peter again",
+          "Finish decrypting the file",
+        ],
+      },
     ],
   },
   {
     name: "Dragon T9",
     image: "",
-	minion: "Dragon",
-    effects: [
-	"Requires all other forms at T9 to start",
-
-	"Equip dragon form",
-	"Submit dragon orb in altar, get green relic and some kind of Amber object",
-	"Submit amber to the incense shrine",
-	"Submit dragon orb at altar, summon kung fu man",
-	"Submit dragon orb at altar, summon gold dragon",
-	"Submit dragon orb at altar, summon megaphone",
-	"Speak to car that shows up near garage, get postcard",
-	"Submit postcard at altar, summon blue dragon",
-	"Shoot sky with 3 incense - it will shoot down blue dragon",
-	"Submit dragon orb at altar, summon burly green dragon",
-	"All 5 join forces to make you the ultimate dragon form (T9)",
+    minion: "Dragon",
+    sections: [
+      {
+        title: "Preparation",
+        items: [
+          "Requires all other forms at T9 to start",
+          "Equip dragon form",
+        ],
+      },
+      {
+        title: "Altar steps",
+        items: [
+          "Submit dragon orb in altar, get green relic and some kind of Amber object",
+          "Submit amber to the incense shrine",
+          "Submit dragon orb at altar, summon kung fu man",
+          "Submit dragon orb at altar, summon gold dragon",
+          "Submit dragon orb at altar, summon megaphone",
+        ],
+      },
+      {
+        title: "Dragon summons",
+        items: [
+          "Speak to car that shows up near garage, get postcard",
+          "Submit postcard at altar, summon blue dragon",
+          "Shoot sky with 3 incense - it will shoot down blue dragon",
+          "Submit dragon orb at altar, summon burly green dragon",
+          "All 5 join forces to make you the ultimate dragon form (T9)",
+        ],
+      },
     ],
   },
 ];
@@ -127,61 +226,60 @@ const rituals = [
   pubDate={new Date('July 02 2026')}
   heroImage="/partner.jpg"
 >
-  <header class="mb-10">
-    <h1 class="text-3xl font-bold mb-2">Ritual details</h1>
-    <p class="text-gray-600 max-w-2xl">
-      Here is a simple breakdown of each form types steps to complete T9 rituals. Credit to ScotchBonnet for the information.
-    </p>
-  </header>
+  <div class="rituals-page">
+    <header class="rituals-intro">
+      <p class="eyebrow">Tier 9 reference</p>
+      <h1>Ritual details</h1>
+      <p>
+        A breakdown of each form's steps to complete T9 rituals. Credit to ScotchBonnet for the information.
+      </p>
+    </header>
 
-  <!-- FILTER UI -->
-	<div class="filter-controls mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-	<!-- Form Filter on the left -->
-	<div>
-		<label>
-		Filter by form:
-		<select id="minionFilter" class="border rounded px-2 py-1">
-			<option value="">All</option>
-			<option value="Angel">Angel</option>
-			<option value="Demon">Demon</option>
-			<option value="Dragon">Dragon</option>
-			<option value="Mecha">Mecha</option>
-			<option value="Mutant">Mutant</option>
-			<option value="Zombie">Zombie</option>
-		</select>
-		</label>
-	</div>
+    <div class="filter-controls" aria-label="Ritual filters">
+      <label for="minionFilter">Filter by form</label>
+      <select id="minionFilter">
+        <option value="">All forms</option>
+        <option value="Angel">Angel</option>
+        <option value="Demon">Demon</option>
+        <option value="Dragon">Dragon</option>
+        <option value="Mecha">Mecha</option>
+        <option value="Mutant">Mutant</option>
+        <option value="Zombie">Zombie</option>
+      </select>
+    </div>
+
+    <section id="partnersGrid" class="rituals-grid" aria-label="Tier 9 ritual cards">
+      {rituals.map((ritual) => (
+        <article
+          class="partner-card"
+          data-minion={ritual.minion}>
+          <div class="card-header">
+            <h2>{ritual.name}</h2>
+          </div>
+
+          <div class="card-content">
+            {ritual.sections.map((section) => (
+              <section class="ritual-section" aria-labelledby={`${ritual.minion}-${section.title}`.toLowerCase().replaceAll(' ', '-')}>
+                <h3 id={`${ritual.minion}-${section.title}`.toLowerCase().replaceAll(' ', '-')}>{section.title}</h3>
+                <ul class="section-list">
+                  {section.items.map((item) => (
+                    <li class="section-item">{item}</li>
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
+
+          {ritual.image && (
+            <div class="card-image">
+              <img src={ritual.image} alt={ritual.name} />
+            </div>
+          )}
+        </article>
+      ))}
+    </section>
   </div>
 
-
-  <!-- CARDS GRID -->
-  <section id="partnersGrid" class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-    {rituals.map((ritual) => (
-      <article
-        class="partner-card"
-        data-minion={ritual.minion}>
-        <div class="card-content">
-          <h2 class="text-xl font-semibold mb-2">{ritual.name}</h2>
-
-          <!-- Per Level Up Section -->
-          <div class="per-level-up mb-2">
-            <strong>To become Tier 9:</strong>
-            <ul class="effect-list mb-2">
-              {ritual.effects.map((effect) => (
-                <li class="effect-item">{effect}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div class="card-image">
-          <img src={ritual.image} alt={ritual.name} />
-        </div>
-      </article>
-    ))}
-  </section>
-
-  <!-- FILTER SCRIPT -->
   <script>
     const minionFilter = document.getElementById('minionFilter');
     const cards = document.querySelectorAll('#partnersGrid .partner-card');
@@ -190,41 +288,123 @@ const rituals = [
       const selectedMinion = minionFilter.value;
 
       cards.forEach(card => {
-        const minion = card.dataset.minion; // hidden, used for filtering
-
+        const minion = card.dataset.minion;
         const matchesMinion = !selectedMinion || minion === selectedMinion;
 
         card.style.display = matchesMinion ? '' : 'none';
       });
     }
 
-    minionFilter.addEventListener('change', filterCards);
+    minionFilter?.addEventListener('change', filterCards);
   </script>
-
 </Layout>
 
 <style>
+.rituals-page {
+  width: min(1120px, calc(100vw - 2rem));
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.rituals-intro {
+  max-width: 760px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.rituals-intro h1 {
+  margin-bottom: 0.5rem;
+  font-size: clamp(2rem, 6vw, 3rem);
+}
+
+.rituals-intro p {
+  margin: 0 auto;
+  color: rgb(var(--gray));
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.rituals-intro .eyebrow {
+  margin-bottom: 0.35rem;
+  color: var(--accent-dark);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.rituals-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
 .partner-card {
   display: flex;
+  flex-direction: column;
   gap: 1rem;
-  padding: 1.25rem;
-  border-radius: 0.75rem;
-  background: var(--card-bg, #ffffff);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  align-items: flex-start;
-  transition: transform 0.2s ease;
+  min-width: 0;
+  padding: 1.35rem;
+  border: 1px solid rgba(var(--gray-light), 90%);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 12px 30px rgba(var(--gray), 14%);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
 .partner-card:hover {
+  border-color: rgba(var(--gray), 35%);
+  box-shadow: 0 16px 36px rgba(var(--gray), 20%);
   transform: translateY(-2px);
 }
 
+.card-header {
+  border-bottom: 1px solid rgba(var(--gray-light), 90%);
+  padding-bottom: 0.8rem;
+}
+
+.card-header p {
+  margin: 0 0 0.2rem;
+  color: var(--accent-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 1.45rem;
+  line-height: 1.15;
+}
+
 .card-content {
-  flex: 1;
+  display: grid;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.ritual-section {
+  padding: 0.85rem;
+  border: 1px solid rgba(var(--gray-light), 90%);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.ritual-section h3 {
+  margin: 0 0 0.55rem;
+  color: rgb(var(--black));
+  font-size: 0.95rem;
+  line-height: 1.3;
 }
 
 .card-image {
-  flex: 0 0 auto;
   display: flex;
   align-items: flex-start;
 }
@@ -233,63 +413,93 @@ const rituals = [
   width: 140px;
   height: auto;
   object-fit: contain;
-  border-radius: 0.5rem;
+  border-radius: 8px;
 }
 
-.per-level-up {
-  background: #f9fafb;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  font-size: 0.9rem;
-}
-
-.per-level-up strong {
-  display: block;
-  margin-bottom: 0.25rem;
-  color: #111827;
-}
-
-.effect-list {
-  list-style: none;
-  padding-left: 0;
+.section-list {
+  padding-left: 1.15rem;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+  color: rgb(var(--gray-dark));
 }
 
-.effect-item {
-  font-size: 0.9rem;
-  color: #3730a3;
+.section-item {
+  padding-left: 0.2rem;
+  margin-bottom: 0.45rem;
+  color: rgb(var(--gray-dark));
+  font-size: 0.92rem;
+  line-height: 1.48;
+}
+
+.section-item::marker {
+  color: var(--accent-dark);
+}
+
+.section-item:last-child {
+  margin-bottom: 0;
 }
 
 .filter-controls {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;      /* vertically center items */
-  justify-content: space-between; /* left/right spacing */
-  gap: 1rem;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(var(--gray-light), 90%);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.76);
 }
 
-/* Responsive layout */
-@media (max-width: 768px) {
-  .partner-card {
-    flex-direction: column;
-    align-items: flex-start;
+.filter-controls label {
+  color: rgb(var(--gray-dark));
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.filter-controls select {
+  min-width: 10rem;
+  border: 1px solid rgba(var(--gray), 35%);
+  border-radius: 8px;
+  background: #fff;
+  color: rgb(var(--gray-dark));
+  font: inherit;
+  font-size: 0.92rem;
+  line-height: 1.2;
+  padding: 0.45rem 0.65rem;
+}
+
+@media (max-width: 900px) {
+  .rituals-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .rituals-page {
+    width: 100%;
+    margin-left: 0;
+    transform: none;
   }
 
-  .card-image img {
-    width: 100%;
-    height: auto;
-    margin-top: 0.5rem;
-  }
-  
   .filter-controls {
-    flex-direction: column; /* stack on small screens */
-    align-items: stretch;   /* full width on mobile */
+    align-items: stretch;
+    flex-direction: column;
   }
-  .filter-controls > div {
-    width: 100%; /* each input/select full width */
+
+  .filter-controls select {
+    width: 100%;
+  }
+
+  .partner-card {
+    padding: 1rem;
+  }
+
+  .ritual-section {
+    padding: 0.75rem;
+  }
+
+  .section-item {
+    font-size: 0.95rem;
   }
 }
 </style>

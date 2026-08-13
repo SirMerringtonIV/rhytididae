@@ -4,7 +4,6 @@ import path from 'path';
 
 const {
   file,              // JSON filename passed as prop
-  responseCol = 9,   // J
   userCol = 4        // E
 } = Astro.props;
 
@@ -31,9 +30,11 @@ const rows = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
 //   Winner   = J (column 9)
 // --------------------------------------------------
 
+const OLD_RESPONSE_COL = 9;   // J
 const OLD_QUESTION_COL = 9;   // J
 const OLD_WINNER_COL = 10;    // K
 
+const NEW_RESPONSE_COL = 8;   // I
 const NEW_QUESTION_COL = 8;   // I
 const NEW_WINNER_COL = 9;     // J
 

@@ -5,37 +5,97 @@ import path from 'path';
 const {
   file,              // JSON filename passed as prop
   responseCol = 9,   // J
-  userCol = 4,       // E
-  winnerCol = 10,    // K
-  questionCol = 9    // J
+  userCol = 4        // E
 } = Astro.props;
 
 if (!file) throw new Error("You must provide a 'file' prop to Responses.astro");
 
 // --- READ JSON AT BUILD TIME ---
 const jsonPath = path.resolve('./public/data', file);
+
 if (!fs.existsSync(jsonPath)) {
   throw new Error(`JSON file not found: ${jsonPath}`);
 }
+
 const rows = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
 
-// Question (first row)
-const question = rows?.[0]?.[questionCol] ? String(rows[0][questionCol]).trim() : '';
+// --------------------------------------------------
+// DETECT OLD OR NEW FILE FORMAT
+//
+// OLD:
+//   Question = J (column 9)
+//   Winner   = K (column 10)
+//
+// NEW:
+//   Question = I (column 8)
+//   Winner   = J (column 9)
+// --------------------------------------------------
 
-// Entries
+const OLD_QUESTION_COL = 9;   // J
+const OLD_WINNER_COL = 10;    // K
+
+const NEW_QUESTION_COL = 8;   // I
+const NEW_WINNER_COL = 9;     // J
+
+// Look for a "1" in column K.
+// If one exists, this is assumed to be an old-format file.
+const hasOldWinnerData = rows
+  .slice(1)
+  .some(row =>
+    String(row[OLD_WINNER_COL] ?? '').trim() === '1'
+  );
+
+// Select the appropriate columns
+const questionCol = hasOldWinnerData
+  ? OLD_QUESTION_COL
+  : NEW_QUESTION_COL;
+
+const winnerCol = hasOldWinnerData
+  ? OLD_WINNER_COL
+  : NEW_WINNER_COL;
+
+// --------------------------------------------------
+// QUESTION
+// --------------------------------------------------
+
+const question = rows?.[0]?.[questionCol]
+  ? String(rows[0][questionCol]).trim()
+  : '';
+
+// --------------------------------------------------
+// ENTRIES
+// --------------------------------------------------
+
 const entries = rows
   .slice(1)
   .filter(r => r[responseCol] && r[userCol])
   .map(r => ({
     response: String(r[responseCol]).trim(),
     user: String(r[userCol]).trim(),
-    isWinner: Boolean(r[winnerCol])
+
+    // A value of "1" marks the winner
+    isWinner: String(r[winnerCol] ?? '').trim() === '1'
   }));
 
+// --------------------------------------------------
+// WINNER
+// --------------------------------------------------
+
 const winner = entries.find(e => e.isWinner);
+
+// --------------------------------------------------
+// SORT EVERYONE ELSE ALPHABETICALLY
+// --------------------------------------------------
+
 const others = entries
   .filter(e => !e.isWinner)
-  .sort((a, b) => a.user.localeCompare(b.user, undefined, { sensitivity: "base" }));
+  .sort((a, b) =>
+    a.user.localeCompare(
+      b.user,
+      undefined,
+      { sensitivity: 'base' }
+    )
+  );
 ---
 
 {question && (
@@ -83,6 +143,7 @@ const others = entries
   .winner blockquote {
     border-left-color: gold;
   }
+
   .question {
     margin-bottom: 2rem;
   }
